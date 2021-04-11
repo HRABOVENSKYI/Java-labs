@@ -2,7 +2,7 @@ package org.example;
 
 public class ElectricShaver {
 
-    public static float powerInWatts;
+    public static final float POWER_IN_WATTS = 60;
 
     private int timeOfAutomaticWorkInSeconds;
     private String manufacturer;
@@ -50,11 +50,11 @@ public class ElectricShaver {
 
     // where to locate???
     public static void printStaticPowerInWatts() {
-        System.out.println(ElectricShaver.powerInWatts);
+        System.out.println(ElectricShaver.POWER_IN_WATTS);
     }
 
     public void printPowerInWatts() {
-        System.out.println(ElectricShaver.powerInWatts);
+        System.out.println(ElectricShaver.POWER_IN_WATTS);
     }
 
     public void resetValues(int timeOfAutomaticWorkInSeconds,
@@ -133,12 +133,8 @@ public class ElectricShaver {
         this.brand = brand;
     }
 
-    public float getPowerInWatts() {
-        return powerInWatts;
-    }
-
-    public void setPowerInWatts(float powerInWatts) {
-        ElectricShaver.powerInWatts = powerInWatts;
+    public static float getPowerInWatts() {
+        return POWER_IN_WATTS;
     }
 
     public float getShippingPrice() {

@@ -27,8 +27,13 @@ public class App {
 
         electricShaves.forEach(System.out::println);
 
-        ElectricShaver.powerInWatts = 45;
+        // Static method to print static field
         ElectricShaver.printStaticPowerInWatts();
+
+        // print static field
+        System.out.println(ElectricShaver.POWER_IN_WATTS);
+
+        // method to print static field
         electricShaves.get(0).printPowerInWatts();
 
         electricShaves.get(2).resetValues(
