@@ -21,34 +21,38 @@ public class ElectricShaver {
     public ElectricShaver(int timeOfAutomaticWorkInSeconds,
                           String manufacturer,
                           int numberOfRazorAttachments,
-                          float priceInHryvnias) {
-        this.timeOfAutomaticWorkInSeconds = timeOfAutomaticWorkInSeconds;
-        this.manufacturer = manufacturer;
-        this.numberOfRazorAttachments = numberOfRazorAttachments;
-        this.priceInHryvnias = priceInHryvnias;
-    }
-
-    public ElectricShaver(int timeOfAutomaticWorkInSeconds,
-                          String manufacturer,
-                          int numberOfRazorAttachments,
                           float priceInHryvnias,
                           int warrantyTimeInYears,
                           String bodyMaterial,
                           String brand,
                           float shippingPrice,
                           int weightInGrams) {
+        resetValues(timeOfAutomaticWorkInSeconds,
+                manufacturer,
+                numberOfRazorAttachments,
+                priceInHryvnias,
+                warrantyTimeInYears,
+                bodyMaterial,
+                brand,
+                shippingPrice,
+                weightInGrams);
+    }
+
+    public ElectricShaver(int timeOfAutomaticWorkInSeconds,
+                          String manufacturer,
+                          int numberOfRazorAttachments,
+                          float priceInHryvnias) {
         this(timeOfAutomaticWorkInSeconds,
                 manufacturer,
                 numberOfRazorAttachments,
-                priceInHryvnias);
-        this.warrantyTimeInYears = warrantyTimeInYears;
-        this.bodyMaterial = bodyMaterial;
-        this.brand = brand;
-        this.shippingPrice = shippingPrice;
-        this.weightInGrams = weightInGrams;
+                priceInHryvnias,
+                0,
+                null,
+                null,
+                0,
+                0);
     }
 
-    // where to locate???
     public static void printStaticPowerInWatts() {
         System.out.println(ElectricShaver.POWER_IN_WATTS);
     }
