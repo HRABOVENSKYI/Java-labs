@@ -27,6 +27,9 @@ public class App {
 
         electricShaves.forEach(System.out::println);
 
+        electricShaves.forEach(electricShaver -> System.out.println(electricShaver.getTimeOfAutomaticWorkInSeconds()));
+        electricShaves.forEach(electricShaver -> System.out.println(electricShaver.getBrand()));
+
         // Static method to print static field
         ElectricShaver.printStaticPowerInWatts();
 
