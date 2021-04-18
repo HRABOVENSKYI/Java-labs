@@ -9,11 +9,11 @@ import ua.lviv.iot.models.loom.Loom;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
-public abstract class MechanicalLoom extends Loom {
+public class MechanicalLoom extends Loom {
 
     private Shape construction;
 
-    protected MechanicalLoom(Country originCountry, double price, double powerInWatts, int widthOfTheFormedTissue,
+    public MechanicalLoom(Country originCountry, double price, double powerInWatts, int widthOfTheFormedTissue,
                           String materialOfTheProducedFabric, Shape construction) {
         super(originCountry, price, powerInWatts, widthOfTheFormedTissue, materialOfTheProducedFabric);
         this.construction = construction;

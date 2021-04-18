@@ -3,7 +3,7 @@ package ua.lviv.iot.models.loom;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data // @ToString, @EqualsAndHashCode, @Getter, @Setter, @RequiredArgsConstructor
+@Data
 @NoArgsConstructor
 public abstract class Loom {
 

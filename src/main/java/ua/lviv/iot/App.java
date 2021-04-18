@@ -5,11 +5,9 @@ import ua.lviv.iot.manager.SortOrder;
 import ua.lviv.iot.models.loom.Country;
 import ua.lviv.iot.models.loom.Loom;
 import ua.lviv.iot.models.loom_types.HandLoom;
+import ua.lviv.iot.models.loom_types.MechanicalLoom;
 import ua.lviv.iot.models.loom_types.Shape;
 import ua.lviv.iot.models.loom_types.Status;
-import ua.lviv.iot.models.mechanical_loom_types.DrawLoom;
-import ua.lviv.iot.models.mechanical_loom_types.FlyingLoom;
-import ua.lviv.iot.models.mechanical_loom_types.WrapweightedLoom;
 
 import java.util.List;
 
@@ -18,11 +16,11 @@ public class App {
 
         List<Loom> listOfLooms = List.of(
                 new HandLoom(Country.UKRAINE, 18000, 0, 1, "Cotton", 19, Status.FUNCTIONAL),
-                new WrapweightedLoom(Country.CHINA, 4500, 120, 2, "Silk", Shape.FLAT),
-                new FlyingLoom(Country.USA, 12500, 850, 6, "Wool", Shape.CIRCULAR),
-                new DrawLoom(Country.GERMANY, 14999, 1200, 8, "Wool", Shape.SQUARE),
-                new FlyingLoom(Country.USA, 9999, 750, 5, "Silk", Shape.CIRCULAR),
-                new WrapweightedLoom(Country.CHINA, 4699, 165, 6, "Wool", Shape.FLAT),
+                new MechanicalLoom(Country.CHINA, 4500, 120, 2, "Silk", Shape.FLAT),
+                new MechanicalLoom(Country.USA, 12500, 850, 6, "Wool", Shape.CIRCULAR),
+                new MechanicalLoom(Country.GERMANY, 14999, 1200, 8, "Wool", Shape.SQUARE),
+                new MechanicalLoom(Country.USA, 9999, 750, 5, "Silk", Shape.CIRCULAR),
+                new MechanicalLoom(Country.CHINA, 4699, 165, 6, "Wool", Shape.FLAT),
                 new HandLoom(Country.UKRAINE, 21000, 0, 6, "Wool", 19, Status.INEFFECTIVE)
         );
 

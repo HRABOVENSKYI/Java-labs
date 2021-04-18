@@ -30,7 +30,7 @@ public class ShopManager {
     }
 
     private List<Loom> getLooms(SortOrder sortOrder, Comparator<Loom> comparing) {
-        if (sortOrder == SortOrder.ASC) {
+        if (sortOrder.equals(SortOrder.ASC)) {
             return looms.stream()
                     .sorted(comparing)
                     .collect(Collectors.toList());
