@@ -12,8 +12,8 @@ import java.util.Map;
 @Service
 public class LoomServiceImpl implements LoomService {
 
-    private Integer id = 0;
-    private Map<Integer, Loom> looms = new HashMap<>();
+    private Long id = 0L;
+    private Map<Long, Loom> looms = new HashMap<>();
 
     @Override
     public Loom createLoom(Loom loom) {
@@ -22,12 +22,12 @@ public class LoomServiceImpl implements LoomService {
     }
 
     @Override
-    public Map<Integer, Loom> getAllLooms() {
+    public Map<Long, Loom> getAllLooms() {
         return looms;
     }
 
     @Override
-    public Loom getLoom(Integer id) {
+    public Loom getLoom(Long id) {
         return looms.get(id);
     }
 
@@ -36,7 +36,7 @@ public class LoomServiceImpl implements LoomService {
      * Returns 404 status code if loom with this id is missing
      */
     @Override
-    public ResponseEntity<Loom> updateLoomById(Integer id, Loom newLoom) {
+    public ResponseEntity<Loom> updateLoomById(Long id, Loom newLoom) {
 
         Loom oldLoom = getLoom(id);
         return looms.replace(id, newLoom) != null ? new ResponseEntity<>(oldLoom, HttpStatus.OK)
@@ -49,7 +49,7 @@ public class LoomServiceImpl implements LoomService {
     }
 
     @Override
-    public void deleteLoomById(Integer id) {
+    public void deleteLoomById(Long id) {
         looms.remove(id);
     }
 }

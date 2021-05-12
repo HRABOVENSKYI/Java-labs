@@ -21,17 +21,17 @@ public class LoomController {
     }
 
     @GetMapping("/looms")
-    public Map<Integer, Loom> getAllLooms() {
+    public Map<Long, Loom> getAllLooms() {
         return loomService.getAllLooms();
     }
 
     @GetMapping("/looms/{id}")
-    public Loom getLoom(final @PathVariable("id") Integer id) {
+    public Loom getLoom(final @PathVariable("id") Long id) {
         return loomService.getLoom(id);
     }
 
     @PutMapping("/looms/{id}")
-    public ResponseEntity<Loom> updateLoom(final @PathVariable("id") Integer id, final @RequestBody Loom loom) {
+    public ResponseEntity<Loom> updateLoom(final @PathVariable("id") Long id, final @RequestBody Loom loom) {
         return loomService.updateLoomById(id, loom);
     }
 
@@ -41,7 +41,7 @@ public class LoomController {
     }
 
     @DeleteMapping("/looms/{id}")
-    public void deleteLoom(final @PathVariable("id") Integer id) {
+    public void deleteLoom(final @PathVariable("id") Long id) {
         loomService.deleteLoomById(id);
     }
 }

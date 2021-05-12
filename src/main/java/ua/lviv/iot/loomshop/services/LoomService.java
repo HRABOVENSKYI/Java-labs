@@ -9,13 +9,13 @@ public interface LoomService {
 
     Loom createLoom(Loom loom);
 
-    Map<Integer, Loom> getAllLooms();
+    Map<Long, Loom> getAllLooms();
 
-    Loom getLoom(Integer id);
+    Loom getLoom(Long id);
 
-    ResponseEntity<Loom> updateLoomById(Integer id, Loom newLoom);
+    ResponseEntity<Loom> updateLoomById(Long id, Loom newLoom);
 
     void deleteAllLooms();
 
-    void deleteLoomById(Integer id);
+    void deleteLoomById(Long id);
 }
