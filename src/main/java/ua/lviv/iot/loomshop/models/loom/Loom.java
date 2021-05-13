@@ -21,4 +21,14 @@ public class Loom {
     protected double powerInWatts;
     protected int widthOfTheFormedTissue;
     protected String materialOfTheProducedFabric;
+
+    // Copy constructor
+    public Loom(Loom loom) {
+        this.id = loom.getId();
+        this.originCountry = loom.getOriginCountry();
+        this.price = loom.getPrice();
+        this.powerInWatts = loom.getPowerInWatts();
+        this.widthOfTheFormedTissue = loom.getWidthOfTheFormedTissue();
+        this.materialOfTheProducedFabric = loom.getMaterialOfTheProducedFabric();
+    }
 }

@@ -1,10 +1,12 @@
 package ua.lviv.iot.loomshop.services.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.hibernate.query.criteria.internal.expression.function.AggregationFunction;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ua.lviv.iot.loomshop.dao.LoomDAO;
+import ua.lviv.iot.loomshop.models.loom.Country;
 import ua.lviv.iot.loomshop.models.loom.Loom;
 import ua.lviv.iot.loomshop.services.LoomService;
 
@@ -42,7 +44,8 @@ public class LoomServiceImpl implements LoomService {
 
         Optional<Loom> loomOptional = loomDAO.findLoomsById(id);
 
-        final Loom oldLoom = loomDAO.findLoomById(id);
+        // Save locally old loom with copy constructor
+        Loom oldLoom = loomOptional.isPresent() ? new Loom(loomDAO.findLoomById(id)) : null;
 
         newLoom.setId(id);
 
