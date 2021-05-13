@@ -3,13 +3,13 @@ package ua.lviv.iot.loomshop.services;
 import org.springframework.http.ResponseEntity;
 import ua.lviv.iot.loomshop.models.loom.Loom;
 
-import java.util.Map;
+import java.util.List;
 
 public interface LoomService {
 
     Loom createLoom(Loom loom);
 
-    Map<Long, Loom> getAllLooms();
+    List<Loom> getAllLooms();
 
     Loom getLoom(Long id);
 
