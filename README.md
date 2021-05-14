@@ -1,5 +1,5 @@
 # Java-labs
-## Lab №6
+## Lab №10
 
 ---
 ### Task
