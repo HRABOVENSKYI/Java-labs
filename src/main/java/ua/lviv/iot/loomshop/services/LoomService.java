@@ -5,7 +5,7 @@ import ua.lviv.iot.loomshop.models.loom.Loom;
 
 import java.util.List;
 
-public interface qLoomService {
+public interface LoomService {
 
     Loom createLoom(Loom loom);
 
