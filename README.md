@@ -23,8 +23,8 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Configure MySQL**
 * Open MySQL as a root user `mysql -u root -p`
-* Create "shop-user" with the password "shop-user" `CREATE USER IF NOT EXISTS 'shop-user'@'localhost' IDENTIFIED BY 'bar';`
-* Give this user all priviliges `GRANT ALL on *.* to 'shop-user'@'localhost';`
+* Create "shop-user" with the password "shop-user" `CREATE USER IF NOT EXISTS 'shop-user'@'localhost' IDENTIFIED BY 'shop-user';`
+* Give this user all privileges `GRANT ALL on *.* to 'shop-user'@'localhost';`
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Clone and run app**
 * Clone this repository `git clone --single-branch --branch lab41 git@github.com:HRABOVENSKYI/Java-labs.git`
