@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import ua.lviv.iot.loomshop.models.loom.Loom;
 import ua.lviv.iot.loomshop.services.LoomService;
 
-import java.util.Map;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/loom-shop")
@@ -21,7 +22,7 @@ public class LoomController {
     }
 
     @GetMapping("/looms")
-    public Map<Long, Loom> getAllLooms() {
+    public List<Loom> getAllLooms() {
         return loomService.getAllLooms();
     }
 
