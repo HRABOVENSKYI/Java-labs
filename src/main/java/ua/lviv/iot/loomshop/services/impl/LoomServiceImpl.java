@@ -1,12 +1,10 @@
 package ua.lviv.iot.loomshop.services.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.hibernate.query.criteria.internal.expression.function.AggregationFunction;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ua.lviv.iot.loomshop.dao.LoomDAO;
-import ua.lviv.iot.loomshop.models.loom.Country;
 import ua.lviv.iot.loomshop.models.loom.Loom;
 import ua.lviv.iot.loomshop.services.LoomService;
 
@@ -19,20 +17,43 @@ public class LoomServiceImpl implements LoomService {
 
     private final LoomDAO loomDAO;
 
+    /**
+     * Returns 200 status code and created Loom object
+     */
     @Override
-    public Loom createLoom(Loom loom) {
+    public ResponseEntity<Loom> createLoom(Loom loom) {
         loomDAO.save(loom);
-        return loom;
+        return new ResponseEntity<>(loom, HttpStatus.OK);
     }
 
+    /**
+     * Returns 200 status code and List of Loom objects if List of looms has at least 1 loom object
+     * Returns 404 status code if List of looms is empty
+     */
     @Override
-    public List<Loom> getAllLooms() {
-        return loomDAO.findAll();
+    public ResponseEntity<List<Loom>> getAllLooms() {
+        List<Loom> looms = loomDAO.findAll();
+
+        if (!looms.isEmpty()) {
+            return new ResponseEntity<>(looms, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
+    /**
+     * Returns 200 status code and Loom object if loom object with this id exists
+     * Returns 404 status code if loom with this id is missing
+     */
     @Override
-    public Loom getLoom(Long id) {
-        return loomDAO.findLoomById(id);
+    public ResponseEntity<Loom> getLoom(Long id) {
+        Loom loom = loomDAO.findLoomById(id);
+
+        if (loom != null) {
+            return new ResponseEntity<>(loom, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     /**
@@ -41,7 +62,6 @@ public class LoomServiceImpl implements LoomService {
      */
     @Override
     public ResponseEntity<Loom> updateLoomById(Long id, Loom newLoom) {
-
         Optional<Loom> loomOptional = loomDAO.findLoomsById(id);
 
         // Save locally old loom with copy constructor
@@ -57,13 +77,35 @@ public class LoomServiceImpl implements LoomService {
         }
     }
 
+    /**
+     * Returns 200 status code if List of looms has at least 1 loom object
+     * Returns 404 status code if List of looms is empty
+     */
     @Override
-    public void deleteAllLooms() {
-        loomDAO.deleteAll();
+    public ResponseEntity<Loom> deleteAllLooms() {
+        List<Loom> looms = loomDAO.findAll();
+
+        if (!looms.isEmpty()) {
+            loomDAO.deleteAll();
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
+    /**
+     * Returns 200 status code if loom object with this id exists
+     * Returns 404 status code if loom with this id is missing
+     */
     @Override
-    public void deleteLoomById(Long id) {
-        loomDAO.deleteById(id);
+    public ResponseEntity<Loom> deleteLoomById(Long id) {
+        Loom loom = loomDAO.findLoomById(id);
+
+        if (loom != null) {
+            loomDAO.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

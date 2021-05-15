@@ -27,7 +27,7 @@
 * Give this user all privileges `GRANT ALL on *.* to 'shop-user'@'localhost';`
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Clone and run app**
-* Clone this repository `git clone --single-branch --branch lab41 git@github.com:HRABOVENSKYI/Java-labs.git`
+* Clone this repository `git clone --single-branch --branch lab41 https://github.com/HRABOVENSKYI/Java-labs.git`
 * Go to the root of the project `cd Java-labs`
 * Launch App with the help of maven `mvn spring-boot:run`
 * Open any web-client, that supports POST, PUT, GET, DELETE http-methods ([POSTMAN](https://www.postman.com/) is recommended) and feel free to test project's endpoints.

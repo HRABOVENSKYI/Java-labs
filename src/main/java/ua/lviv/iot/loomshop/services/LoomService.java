@@ -7,15 +7,15 @@ import java.util.List;
 
 public interface LoomService {
 
-    Loom createLoom(Loom loom);
+    ResponseEntity<Loom> createLoom(Loom loom);
 
-    List<Loom> getAllLooms();
+    ResponseEntity<List<Loom>> getAllLooms();
 
-    Loom getLoom(Long id);
+    ResponseEntity<Loom> getLoom(Long id);
 
     ResponseEntity<Loom> updateLoomById(Long id, Loom newLoom);
 
-    void deleteAllLooms();
+    ResponseEntity<Loom> deleteAllLooms();
 
-    void deleteLoomById(Long id);
+    ResponseEntity<Loom> deleteLoomById(Long id);
 }
