@@ -62,14 +62,14 @@ public class LoomServiceImpl implements LoomService {
      */
     @Override
     public ResponseEntity<Loom> updateLoomById(Long id, Loom newLoom) {
-        Optional<Loom> loomOptional = loomDAO.findLoomsById(id);
+        Loom loomOptional = loomDAO.findLoomById(id);
 
         // Save locally old loom with copy constructor
-        Loom oldLoom = loomOptional.isPresent() ? new Loom(loomDAO.findLoomById(id)) : null;
+        Loom oldLoom = loomOptional != null ? new Loom(loomDAO.findLoomById(id)) : null;
 
         newLoom.setId(id);
 
-        if (loomOptional.isPresent()) {
+        if (loomOptional != null) {
             loomDAO.save(newLoom);
             return new ResponseEntity<>(oldLoom, HttpStatus.OK);
         } else {

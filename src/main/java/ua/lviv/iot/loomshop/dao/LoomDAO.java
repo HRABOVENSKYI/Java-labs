@@ -10,6 +10,4 @@ import java.util.Optional;
 public interface LoomDAO extends JpaRepository<Loom, Long> {
 
     Loom findLoomById(Long id);
-
-    Optional<Loom> findLoomsById(Long id);
 }
